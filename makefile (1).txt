@@ -1,0 +1,20 @@
+build:
+	rm -f app.exe
+	gcc main.c -o app.exe
+
+run:
+	./app.exe
+
+valgrind:
+	valgrind -s --tool=memcheck --leak-check=yes --leak-check=full --track-origins=yes ./app.exe < predef.txt
+
+
+build_test:
+	rm -f test.exe
+	gcc test.c main.c -o test.exe
+
+run_test:
+	./test.exe
+
+run_predef:
+	./app.exe < predef.txt
